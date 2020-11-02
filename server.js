@@ -17,8 +17,8 @@ app.get('/', (req, res) => {
   res.send('Transactions API');
 });
 
-app.get('/transactions', (req, res) => {
-  res.json(transactions.generateData(3));
+app.get('/transactions/:count', (req, res) => {
+  res.json(transactions.generateData(req.params.count));
 })
 
 app.listen(port, () => console.log(`Transactions Api is listening on port ${port}`));
